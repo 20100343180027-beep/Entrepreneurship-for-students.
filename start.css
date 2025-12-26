@@ -1,0 +1,19 @@
+h2{
+    font-size: 60px;
+    color: rgb(10, 132, 40);
+
+}
+p{
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+}
+body{
+    background-image: url("images/kk.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+    font-size: 50px;
+    color: rgb(10, 50, 103);
+    padding: 130px;
+}

@@ -1,0 +1,55 @@
+
+<section id="reviews" style="background:#f8f9fa; padding:50px 20px; text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h2 style="color:#2c3e50; margin-bottom:30px;">What Our Users Say</h2>
+    
+    <!-- Review cards container -->
+    <div id="reviewContainer" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-bottom:40px;">
+        <!-- Pre-existing reviews -->
+        <div class="reviewCard" style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <p>"This website completely changed how I organize my tasks! Love it!"</p>
+            <h4 style="margin-top:15px; color:#34495e;">— Alice W.</h4>
+        </div>
+        <div class="reviewCard" style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <p>"Adding and managing my roadmap tasks has never been easier."</p>
+            <h4 style="margin-top:15px; color:#34495e;">— John D.</h4>
+        </div>
+        <div class="reviewCard" style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+            <p>"I love the drag-and-drop papers and the recycle bin feature!"</p>
+            <h4 style="margin-top:15px; color:#34495e;">— Sarah K.</h4>
+        </div>
+    </div>
+    
+    <!-- Form to submit new review -->
+    <div style="max-width:400px; margin:0 auto; text-align:left;">
+        <h3 style="color:#2c3e50;">Submit Your Review</h3>
+        <input id="reviewName" type="text" placeholder="Your Name" style="width:100%; padding:8px; margin:8px 0; border-radius:5px; border:1px solid #ccc;">
+        <textarea id="reviewText" placeholder="Your Review" style="width:100%; padding:8px; margin:8px 0; border-radius:5px; border:1px solid #ccc; resize:vertical;"></textarea>
+        <button onclick="addReview()" style="padding:10px 20px; background:#1abc9c; color:white; border:none; border-radius:5px; cursor:pointer;">Submit</button>
+    </div>
+</section>
+
+<script>
+// Add new review dynamically
+function addReview(){
+    const name = document.getElementById('reviewName').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+    if(name && text){
+        const container = document.getElementById('reviewContainer');
+        const card = document.createElement('div');
+        card.className = "reviewCard";
+        card.style.background = "white";
+        card.style.padding = "20px";
+        card.style.width = "250px";
+        card.style.borderRadius = "10px";
+        card.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+        card.innerHTML = `<p>"${text}"</p><h4 style="margin-top:15px; color:#34495e;">— ${name}</h4>`;
+        container.appendChild(card);
+
+        // Clear form
+        document.getElementById('reviewName').value = "";
+        document.getElementById('reviewText').value = "";
+    } else {
+        alert("Please enter both your name and review!");
+    }
+}
+</script>

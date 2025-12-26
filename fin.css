@@ -1,0 +1,14 @@
+h2{
+    font-size: 60px;
+    color: darkblue;
+}
+p{
+    font-size: 40px;
+    color: black;
+    background-image: 100px;
+}
+body{
+    background-image: url(images/1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

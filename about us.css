@@ -1,0 +1,12 @@
+h2{
+    color: black;
+    text-align: left;
+    font-size: 70px;
+}
+body{
+    background-image:url(images/download.jpg);
+    background-size: cover;
+}
+p{
+    font-size: 40px;
+}

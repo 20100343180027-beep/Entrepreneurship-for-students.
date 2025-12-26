@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="fin.css" rel="stylesheet">
+    </head>
+    <h2>💰 Financial Management Basics</h2>
+    <h3>What is Financial Management?</h3>
+    <body>
+
+        <p>The process of planning, organizing, controlling, and monitoring money to achieve goals efficiently.
+        </p>
+        <img src="images/v.jpg">
+        <p>🔑 Core Principles
+</p>
+        <p>• 	Budgeting → Plan income vs. expenses.
+    • 	Saving → Set aside money for future needs.
+    •  	Investing → Grow wealth through assets (stocks, bonds, businesses).
+    • 	Risk Management → Protect against losses (insurance, diversification).
+    • 	Cash Flow Control → Track money coming in and going out.</p>
+       <p> Goals of Financial Management
+    • 	Ensure financial stability
+• 	Maximize profitability
+• 	Support growth and expansion
+• 	Maintain liquidity (enough cash for daily needs)
+• 	Build long-term wealth
+</p>
+       <h2> Profit, Income & Revenue</h2>
+       <p>Revenue
+• 	Definition: Total money earned from selling goods or services.
+• 	Example: A shop sells 100 pens at $2 each → Revenue = $200.
+• 	Think of it as the gross inflow before subtracting anything.
+</p>
+      <p> Income
+• 	Definition: Money left after subtracting costs and expenses (sometimes used interchangeably with profit, but often broader).
+• 	Example: Revenue = $200, Costs (rent, salaries, supplies) = $150 → Income = $50.
+• 	It’s the net earnings available to the business.</p>
+      <p>Profit
+• 	Definition: The financial gain when revenue exceeds total costs.
+• 	Formula: Profit = Revenue − Costs.
+• 	Example: Same shop → Revenue $200 − Costs $150 = Profit $50.
+• 	Profit shows if the business is successful.
+</p>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/WNm_ez1h7Tc?si=FBuOUGaphGtMFilu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    </body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Calculator</title>
+</head>
+<body>
+
+  <h2>Basic Calculator</h2>
+
+  <input type="number" id="num1" placeholder="First number">
+  <input type="number" id="num2" placeholder="Second number">
+  <br><br>
+
+  <button onclick="add()">Add</button>
+  <button onclick="subtract()">Subtract</button>
+  <button onclick="multiply()">Multiply</button>
+  <button onclick="divide()">Divide</button>
+
+  <h3>Result: <span id="result">0</span></h3>
+
+  <script>
+    function add() {
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = a + b;
+    }
+
+    function subtract() {
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = a - b;
+    }
+
+    function multiply() {
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = a * b;
+    }
+
+    function divide() {
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = b !== 0 ? a / b : "Error";
+    }
+  </script>
+
+</body>
+</html>

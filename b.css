@@ -1,0 +1,19 @@
+h1{
+    font-size: 80px;
+    font-style: italic;
+    animation: reverse;
+}
+h2{
+    font-size: 60px;
+    font-style: italic;
+}
+p{
+    font-size:60px;
+    font-display: swap;
+    animation: backwards;
+}
+body{
+    background-image: url(images/22.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,12 @@
+h1{
+    font-size: 80px;
+}
+P{
+    font-size: 60px;
+    color:blueviolet;
+}
+body{
+    background-image: url(images/download.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

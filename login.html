@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Sign Up with Free Trial</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .switch {
+    margin-top: 15px;
+    cursor: pointer;
+    color: #007BFF;
+    text-decoration: underline;
+  }
+
+  #message {
+    margin-top: 20px;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="container">
+  <h2 id="formTitle">Login</h2>
+  <form id="form">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit" id="submitBtn">Login</button>
+  </form>
+  <div class="switch" id="switchForm">Don't have an account? Sign in</div>
+  <div id="message"></div>
+</div>
+
+<script>
+  const formTitle = document.getElementById("formTitle");
+  const form = document.getElementById("form");
+  const submitBtn = document.getElementById("submitBtn");
+  const switchForm = document.getElementById("switchForm");
+  const message = document.getElementById("message");
+
+  let isLogin = true; // Start with login form
+
+  // Switch between login and signup
+  switchForm.addEventListener("click", () => {
+    isLogin = !isLogin;
+    if(isLogin) {
+      formTitle.innerText = "Login";
+      submitBtn.innerText = "Login";
+      switchForm.innerText = "Don't have an account? Sign Up";
+    } else {
+      formTitle.innerText = "Sign Up";
+      submitBtn.innerText = "Sign Up";
+      switchForm.innerText = "Already have an account? Login";
+    }
+    message.innerText = "";
+    form.reset();
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    // Get users from localStorage or create empty object
+    let users = JSON.parse(localStorage.getItem("users")) || {};
+
+    if(isLogin) {
+      // LOGIN
+      if(users[username] && users[username].password === password) {
+        let trialStart = users[username].trialStart;
+        if(!trialStart) {
+          trialStart = new Date().toISOString();
+          users[username].trialStart = trialStart;
+          localStorage.setItem("users", JSON.stringify(users));
+          message.innerText = "Welcome! Your 15-day free trial starts today.";
+        } else {
+          const now = new Date();
+          const trialEnd = new Date(trialStart);
+          trialEnd.setDate(trialEnd.getDate() + 15);
+
+          if(now <= trialEnd) {
+            message.innerText = `Welcome back! Your free trial ends on ${trialEnd.toDateString()}.`;
+          } else {
+            message.innerText = "Your free trial has ended. Please subscribe to continue.";
+          }
+        }
+      } else {
+        message.innerText = "Invalid username or password!";
+      }
+    } else {
+      // SIGN UP
+      if(users[username]) {
+        message.innerText = "Username already exists. Choose another.";
+      } else {
+        users[username] = { password: password, trialStart: null };
+        localStorage.setItem("users", JSON.stringify(users));
+        message.innerText = "Account created successfully! You can now login.";
+        form.reset();
+        // Switch to login
+        isLogin = true;
+        formTitle.innerText = "Login";
+        submitBtn.innerText = "Login";
+        switchForm.innerText = "Don't have an account? Sign Up";
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

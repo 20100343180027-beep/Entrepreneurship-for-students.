@@ -1,0 +1,28 @@
+h2{
+    font-size: 70px;
+    color: black;
+}
+.logo{
+    width: 200px;
+    height:200px ;
+    border-radius: 50%;
+}
+p{
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+}
+body{
+    background-image:url(images/tt.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav {
+    display: block;
+    margin: auto;
+    float: center;
+    font-size: 50px;
+    padding: 100px;
+}

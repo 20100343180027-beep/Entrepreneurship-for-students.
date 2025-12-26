@@ -1,0 +1,51 @@
+
+.navbar a:not(#home) , .dropdown-btn {
+    float: left;
+    display: block;
+    color:blue;
+    text-align: center;
+    padding: 18px 30px;   
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;      
+    transition: 0.3s, color 0.3s;
+}
+
+.navbar a#home {
+    float: left;
+    display: block;
+    color: hsl(224, 89%, 7%);
+    text-align: center;
+    padding: 22px 40px; 
+    font-weight: bold;
+    font-size: 28px;      
+    transition:  0.3s, color 0.3s;
+}
+
+
+.navbar i {
+    margin-right: 15px;
+}
+
+
+.navbar a#home i {
+    font-size: 30px;
+}
+
+
+.dropdown-content a {
+    padding: 16px 20px;
+    font-size: 17px;
+}
+body{
+    background-image: url("images/kk.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+p{
+    font-size: 30px;
+    font-style: italic;
+}
+
+
+
